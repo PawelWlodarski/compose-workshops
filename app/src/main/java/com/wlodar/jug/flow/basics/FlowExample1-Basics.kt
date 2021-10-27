@@ -6,10 +6,12 @@ import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.launch
 
 fun main() {
 //    Examples1.example1()
-    Examples1.example2()
+//    Examples1.example2()
+    Examples1.example3()
 }
 
 object Examples1{
@@ -42,7 +44,21 @@ object Examples1{
     }
 
     fun example3() {
-        //CANCELLATION
+        val flowBuilder = flow {
+            (1..5).forEach {
+                emit(it)
+                delay(500)
+            }
+        }
+
+        runBlocking {
+            val job=launch {
+                flowBuilder.collect(::println)
+            }
+
+            delay(1100)
+            job.cancel()
+        }
     }
 }
 
