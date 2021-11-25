@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ComposeWorkshops</string>
     <string name="title_activity_flows_examples">FlowsExamples</string>
+    <string name="title_activity_application_with_gui">ApplicationWithGUI</string>
 </resources>
