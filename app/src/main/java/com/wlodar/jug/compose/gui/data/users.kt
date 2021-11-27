@@ -17,7 +17,7 @@ object InMemoryUsersRepository:UsersRepository{
     override fun select():Collection<User> = users
 }
 
-object InMemorySourceOfALotOfUsersy:UsersRepository{
+object InMemorySourceOfALotOfUsers:UsersRepository{
     private var users = (1 .. 100).map {
         User("user$it@gmail.com","user$it")
     }
