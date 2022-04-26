@@ -1,4 +1,4 @@
-package com.wlodar.jug.compose.exercises.ex1basics
+package com.wlodar.jug.compose.exercises.ex2basicstate
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
@@ -9,14 +9,13 @@ import com.wlodar.jug.compose.Destinations
 import com.wlodar.jug.compose.ui.infrastructure.NavigatingButton
 import com.wlodar.jug.compose.ui.infrastructure.WorkshopPageLayout
 
-
 @Composable
-fun Exercise1Basics(navController: NavHostController) {
+fun Exercise2Basicstate(navController: NavHostController) {
     WorkshopPageLayout {
         Column {
-            NavigatingButton(navController, Destinations.EXERCISE1_DEMO, "demo")
-            NavigatingButton(navController, Destinations.EXERCISE1_EXERCISES, "exercise")
-            NavigatingButton(navController, Destinations.EXERCISE1_ANSWERS, "answer")
+            NavigatingButton(navController, Destinations.EXERCISE2_DEMO, "demo")
+            NavigatingButton(navController, Destinations.EXERCISE2_EXERCISES, "exercises")
+            NavigatingButton(navController, Destinations.EXERCISE2_ANSWERS, "answers")
         }
     }
 
@@ -26,5 +25,5 @@ fun Exercise1Basics(navController: NavHostController) {
 @Composable
 fun DefaultPreview() {
     val navController = rememberNavController()
-    Exercise1Basics(navController)
+    Exercise2Basicstate(navController)
 }

@@ -4,15 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Button
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -22,6 +15,10 @@ import com.wlodar.jug.compose.exercises.ex1basics.Exercise1Answers
 import com.wlodar.jug.compose.exercises.ex1basics.Exercise1Basics
 import com.wlodar.jug.compose.exercises.ex1basics.Exercise1Demo
 import com.wlodar.jug.compose.exercises.ex1basics.Exercise1Exercises
+import com.wlodar.jug.compose.exercises.ex2basicstate.Exercise2Basicstate
+import com.wlodar.jug.compose.exercises.ex2basicstate.Exercise2Demo
+import com.wlodar.jug.compose.ui.infrastructure.NavigatingButton
+import com.wlodar.jug.compose.ui.infrastructure.WorkshopPageLayout
 import com.wlodar.jug.compose.ui.theme.ComposeWorkshopsTheme
 
 class MainActivity : ComponentActivity() {
@@ -50,6 +47,7 @@ fun ComposeWorkshops() {
     NavHost(navController = navController, startDestination = "start") {
         setMainNavigation(navController)
         setExercise1Navigation(navController)
+        setExercise2Navigation(navController)
     }
 }
 
@@ -64,27 +62,23 @@ private fun NavGraphBuilder.setExercise1Navigation(navController: NavHostControl
     composable(Destinations.EXERCISE1_ANSWERS) { Exercise1Answers() }
 }
 
+private fun NavGraphBuilder.setExercise2Navigation(navController: NavHostController) {
+    composable(Destinations.EXERCISE2) { Exercise2Basicstate(navController) }
+    composable(Destinations.EXERCISE2_DEMO) { Exercise2Demo() }
+    composable(Destinations.EXERCISE1_EXERCISES) { Exercise1Exercises() }
+    composable(Destinations.EXERCISE1_ANSWERS) { Exercise1Answers() }
+}
+
 @Composable
 fun StartPage(navController: NavHostController) {
 
     WorkshopPageLayout {
-        Column(modifier = Modifier.padding(5.dp)) {
-            Button(onClick = { navController.navigate("exercise1") }) {
-                Text(text = "Exercise1 - Intro")
-            }
+        Column {
+            NavigatingButton(navController, Destinations.EXERCISE1, "Exercise1 - Intro")
+            NavigatingButton(navController, Destinations.EXERCISE2, "Exercise2 - Basic state")
         }
     }
 }
 
-@Composable
-fun WorkshopPageLayout(content: @Composable () -> Unit) {
-    @Composable
-    fun WorkshopsAppBar(): @Composable () -> Unit = { TopAppBar(title = { Text("Compose Workshops") }) }
 
-    Scaffold(
-        topBar = WorkshopsAppBar()
-    ) {
-        content()
-    }
-}
 
