@@ -12,4 +12,7 @@ object Destinations {
     const val EXERCISE2_DEMO = "exercise2Demo"
     const val EXERCISE2_EXERCISES = "exercise2Exercises"
     const val EXERCISE2_ANSWERS = "exercise2Answers"
+
+    const val EXERCISE3 = "exercise3"
+    const val EXERCISE3_DEMO = "exercise3Demo"
 }

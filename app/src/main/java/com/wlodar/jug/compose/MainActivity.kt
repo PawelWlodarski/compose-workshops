@@ -19,6 +19,8 @@ import com.wlodar.jug.compose.exercises.ex2basicstate.Exercise2Answers
 import com.wlodar.jug.compose.exercises.ex2basicstate.Exercise2Basicstate
 import com.wlodar.jug.compose.exercises.ex2basicstate.Exercise2Demo
 import com.wlodar.jug.compose.exercises.ex2basicstate.Exercise2Exercises
+import com.wlodar.jug.compose.exercises.ex3themes.Exercise3Demo
+import com.wlodar.jug.compose.exercises.ex3themes.Exercise3Themes
 import com.wlodar.jug.compose.ui.infrastructure.NavigatingButton
 import com.wlodar.jug.compose.ui.infrastructure.WorkshopPageLayout
 import com.wlodar.jug.compose.ui.theme.ComposeWorkshopsTheme
@@ -50,6 +52,7 @@ fun ComposeWorkshops() {
         setMainNavigation(navController)
         setExercise1Navigation(navController)
         setExercise2Navigation(navController)
+        setExercise3Navigation(navController)
     }
 }
 
@@ -71,6 +74,11 @@ private fun NavGraphBuilder.setExercise2Navigation(navController: NavHostControl
     composable(Destinations.EXERCISE2_ANSWERS) { Exercise2Answers() }
 }
 
+private fun NavGraphBuilder.setExercise3Navigation(navController: NavHostController) {
+    composable(Destinations.EXERCISE3) { Exercise3Themes(navController) }
+    composable(Destinations.EXERCISE3_DEMO) { Exercise3Demo() }
+}
+
 @Composable
 fun StartPage(navController: NavHostController) {
 
@@ -78,6 +86,7 @@ fun StartPage(navController: NavHostController) {
         Column {
             NavigatingButton(navController, Destinations.EXERCISE1, "Exercise1 - Intro")
             NavigatingButton(navController, Destinations.EXERCISE2, "Exercise2 - Basic state")
+            NavigatingButton(navController, Destinations.EXERCISE3, "Exercise3 - Themes")
         }
     }
 }
