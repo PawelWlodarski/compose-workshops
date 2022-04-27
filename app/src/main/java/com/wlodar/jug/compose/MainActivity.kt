@@ -15,8 +15,10 @@ import com.wlodar.jug.compose.exercises.ex1basics.Exercise1Answers
 import com.wlodar.jug.compose.exercises.ex1basics.Exercise1Basics
 import com.wlodar.jug.compose.exercises.ex1basics.Exercise1Demo
 import com.wlodar.jug.compose.exercises.ex1basics.Exercise1Exercises
+import com.wlodar.jug.compose.exercises.ex2basicstate.Exercise2Answers
 import com.wlodar.jug.compose.exercises.ex2basicstate.Exercise2Basicstate
 import com.wlodar.jug.compose.exercises.ex2basicstate.Exercise2Demo
+import com.wlodar.jug.compose.exercises.ex2basicstate.Exercise2Exercises
 import com.wlodar.jug.compose.ui.infrastructure.NavigatingButton
 import com.wlodar.jug.compose.ui.infrastructure.WorkshopPageLayout
 import com.wlodar.jug.compose.ui.theme.ComposeWorkshopsTheme
@@ -65,8 +67,8 @@ private fun NavGraphBuilder.setExercise1Navigation(navController: NavHostControl
 private fun NavGraphBuilder.setExercise2Navigation(navController: NavHostController) {
     composable(Destinations.EXERCISE2) { Exercise2Basicstate(navController) }
     composable(Destinations.EXERCISE2_DEMO) { Exercise2Demo() }
-    composable(Destinations.EXERCISE1_EXERCISES) { Exercise1Exercises() }
-    composable(Destinations.EXERCISE1_ANSWERS) { Exercise1Answers() }
+    composable(Destinations.EXERCISE2_EXERCISES) { Exercise2Exercises() }
+    composable(Destinations.EXERCISE2_ANSWERS) { Exercise2Answers() }
 }
 
 @Composable
